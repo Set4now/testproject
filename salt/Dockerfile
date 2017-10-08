@@ -1,6 +1,6 @@
 FROM centos:7
 MAINTAINER sumandeb
-RUN yum install https://repo.saltstack.com/yum/redhat/salt-repo-latest-2.el7.noarch.rpm 
+RUN yum install https://repo.saltstack.com/yum/redhat/salt-repo-latest-2.el7.noarch.rpm -y
 RUN yum update -y
 RUN yum install salt-master salt-minion salt-cloud salt-ssh salt-api salt-syndic -y
 RUN yum install java openssh-server openssh-clients -y
