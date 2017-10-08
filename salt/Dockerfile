@@ -1,4 +1,4 @@
-FROM hjd48/redhat
+FROM centos:7
 MAINTAINER sumandeb
 RUN yum install https://repo.saltstack.com/yum/redhat/salt-repo-latest-2.el7.noarch.rpm 
 RUN yum update -y
