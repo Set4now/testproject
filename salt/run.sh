@@ -2,11 +2,7 @@
 #this will start the salt services and all other dependencies services for this container
 LOG_LEVEL=${LOG_LEVEL:-"info"}
 /usr/bin/ssh-keygen -A
-/usr/sbin/sshd -D
-if [ $? -ne 0];then
-echo "sshd service failed"
-exit 1
-fi
+
 /usr/bin/salt-minion -d
 if [ $? -ne 0];then
 echo "salt minion service failed"
@@ -29,5 +25,9 @@ if [ exit_status_salt-master -ne 0 -o exit_status_salt-minion -ne 0 ];then
 echo "One of the process exited"
 exit -1
 fi
-
+/usr/sbin/sshd -D
+if [ $? -ne 0];then
+echo "sshd service failed"
+exit 1
+fi
 
