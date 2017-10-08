@@ -3,9 +3,9 @@
 LOG_LEVEL=${LOG_LEVEL:-"info"}
 /usr/bin/ssh-keygen -A
 /usr/sbin/sshd -D
-/usr/bin/salt-minion
+/usr/bin/salt-minion -d
 sleep 20
 salt-call --local tls.create_self_signed_cert
 #/etc/init.d/salt-api start
 # Run Salt as a Deamon
-/usr/bin/salt-master --log-level=$LOG_LEVEL
+/usr/bin/salt-master -d --log-level=$LOG_LEVEL
